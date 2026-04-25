@@ -10,10 +10,22 @@ if (isset($_GET['length'])) {
     $numbers = "0123456789";
     $symbols = "!@#$^&*()";
 
-    // variabili che include questi caratteri insieme
-    $allChars = $uppercase . $lowercase .  $numbers . $symbols;
+    $allChars = "";
 
-    // var_dump ($allChars);
+    // controlli per gestione lettere, numeri e simboli
+    if(isset($_GET['letters']) && $_GET['letters'] == 'on'){
+        $allChars .= $uppercase . $lowercase;
+    }
+
+    if(isset($_GET['numbers']) && $_GET['numbers'] == 'on'){
+        $allChars .= $numbers;
+    }
+
+    if(isset($_GET['symbols']) && $_GET['symbols'] == 'on'){
+        $allChars .= $symbols;
+    }
+
+     // var_dump ($allChars);
 
     for($i=0; $i < $_GET['length']; $i++){
         // prendere un carattere randomico dalla stringa
